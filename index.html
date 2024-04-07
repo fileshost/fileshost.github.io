@@ -4,67 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FilesHost</title>
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            text-align: center;
-            margin-top: 100px;
-        }
-        input[type="text"], input[type="password"] {
-            width: 300px;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        input[type="submit"] {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1>FilesHost</h1>
-        <form id="uploadForm" action="/addfile" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" id="fileInput" accept="*"><br>
-            <input type="text" name="filename" id="filenameInput" placeholder="Nazwa pliku"><br>
-            <input type="password" name="admin_password" id="passwordInput" placeholder="Hasło admina"><br>
-            <input type="submit" value="Upload" id="uploadButton">
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" name="file" id="fileInput" accept=".jpg, .png" required>
+            <img id="preview" src="#" alt="Preview" style="display:none; max-width:200px; max-height:200px;">
+            <input type="text" name="filename" id="filename" placeholder="Enter filename" required>
+            <input type="password" name="password" id="password" placeholder="Enter admin password" required>
+            <button type="submit" id="uploadBtn">Upload</button>
         </form>
     </div>
 
-    <script>
-        document.getElementById("uploadForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            var fileInput = document.getElementById("fileInput");
-            var filenameInput = document.getElementById("filenameInput");
-            var passwordInput = document.getElementById("passwordInput");
-
-            // Validation
-            if (fileInput.files.length === 0) {
-                alert("Wybierz plik do przesłania.");
-                return;
-            }
-            if (filenameInput.value.trim() === "") {
-                alert("Wpisz nazwę pliku.");
-                return;
-            }
-            if (passwordInput.value.trim() !== "cgOMOjwEaXc1bkDXFijhAW3fKM0E9H") {
-                alert("Nieprawidłowe hasło admina.");
-                return;
-            }
-
-            // If all inputs are filled and password is correct, submit the form
-            this.submit();
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
