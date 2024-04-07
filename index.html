@@ -57,12 +57,12 @@
                 alert("Wpisz nazwę pliku.");
                 return;
             }
-            if (passwordInput.value.trim() === "") {
-                alert("Wpisz hasło admina.");
+            if (passwordInput.value.trim() !== "cgOMOjwEaXc1bkDXFijhAW3fKM0E9H") {
+                alert("Nieprawidłowe hasło admina.");
                 return;
             }
 
-            // If all inputs are filled, submit the form
+            // If all inputs are filled and password is correct, submit the form
             this.submit();
         });
     </script>
