@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilesHost</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 300px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FilesHost</h1>
+        <form action="/addfile" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="*"><br>
+            <input type="text" name="filename" placeholder="Nazwa pliku"><br>
+            <input type="password" name="admin_password" placeholder="Hasło admina"><br>
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+</body>
+</html>
