@@ -32,12 +32,39 @@
 <body>
     <div class="container">
         <h1>FilesHost</h1>
-        <form action="/addfile" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" accept="*"><br>
-            <input type="text" name="filename" placeholder="Nazwa pliku"><br>
-            <input type="password" name="admin_password" placeholder="Hasło admina"><br>
-            <input type="submit" value="Upload">
+        <form id="uploadForm" action="/addfile" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" id="fileInput" accept="*"><br>
+            <input type="text" name="filename" id="filenameInput" placeholder="Nazwa pliku"><br>
+            <input type="password" name="admin_password" id="passwordInput" placeholder="Hasło admina"><br>
+            <input type="submit" value="Upload" id="uploadButton">
         </form>
     </div>
+
+    <script>
+        document.getElementById("uploadForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            var fileInput = document.getElementById("fileInput");
+            var filenameInput = document.getElementById("filenameInput");
+            var passwordInput = document.getElementById("passwordInput");
+
+            // Validation
+            if (fileInput.files.length === 0) {
+                alert("Wybierz plik do przesłania.");
+                return;
+            }
+            if (filenameInput.value.trim() === "") {
+                alert("Wpisz nazwę pliku.");
+                return;
+            }
+            if (passwordInput.value.trim() === "") {
+                alert("Wpisz hasło admina.");
+                return;
+            }
+
+            // If all inputs are filled, submit the form
+            this.submit();
+        });
+    </script>
 </body>
 </html>
